@@ -1,0 +1,24 @@
+{
+  "name": "coudy_dispatcher",
+  "version": "0.1.0",
+  "description": "The dispatcher for Coudy. Receives audio from device, recognizes voice command and dispatch action.",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=prod node index.js",
+    "dev": "NODE_ENV=dev NODE_LANG=en node index.js",
+    "debug": "NODE_ENV=dev NODE_LANG=en node --inspect-brk=9222 index.js"
+  },
+  "author": "Marek Tomko",
+  "license": "ISC",
+  "engines": {
+    "node": "10.14.0",
+    "npm": "6.4.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-pino-logger": "^4.0.0",
+    "pino": "^5.11.1",
+    "unirest": "^0.5.1"
+  }
+}
