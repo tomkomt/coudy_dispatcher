@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const pino = require('express-pino-logger')()
 const logger = require('pino')()
+const fileUpload = require('express-fileupload');
 
 /** 
  * Use Pino
@@ -23,9 +24,14 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json()); 
 
 /** 
- * Routes
+ * Allow files upload
 */
-// require('./routes/v1/message')(app);
+app.use(fileUpload());
+
+/** 
+ * Use routes
+*/
+require('./routes/v1/speech')(app);
 
 /**
  * Server listener
