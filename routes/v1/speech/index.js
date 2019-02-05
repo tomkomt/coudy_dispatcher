@@ -6,9 +6,5 @@
 
 module.exports = (app) => {
     app.route('/api/v1/speech')
-    .post(
-        (req, res, next) => {
-
-        }
-    );
+    .post(require('./modules/postProcessAudioMp3.js'));
 }
