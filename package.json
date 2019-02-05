@@ -17,6 +17,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "express-fileupload": "^1.1.1-alpha.1",
     "express-pino-logger": "^4.0.0",
     "pino": "^5.11.1",
     "unirest": "^0.5.1"
