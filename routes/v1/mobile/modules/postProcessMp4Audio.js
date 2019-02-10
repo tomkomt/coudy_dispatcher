@@ -10,15 +10,17 @@ module.exports = (req, res, next) => {
 
     const recognizeParams = {
         audio: req.files.audioData.data,
-        content_type: configParams.getIn(['services', 'speech2text', 'content-type']),
-        timestamps: true
+        content_type: configParams.getIn(['services', 'speech2text', 'source_devices', 'mobile', 'content-type']),
+        timestamps: true,
+        model: 'en-US_NarrowbandModel'
     };
 
     speechToText.recognize(recognizeParams, (error, results) => {
         if(error) {
             res.send(error);
         } else {
-            res.send(JSON.stringify(results))
+            console.log(results);
+            res.status(200).send(results);
         }
     })
 }
