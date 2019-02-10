@@ -1,0 +1,5 @@
+applications:
+- name: coudy-dispatcher
+  memory: 512M
+  command: node index.js
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
