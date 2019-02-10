@@ -11,7 +11,7 @@
   "author": "Marek Tomko",
   "license": "ISC",
   "engines": {
-    "node": "10.14.0",
+    "node": "10.14.2",
     "npm": "6.4.1"
   },
   "dependencies": {
@@ -19,7 +19,9 @@
     "express": "^4.16.4",
     "express-fileupload": "^1.1.1-alpha.1",
     "express-pino-logger": "^4.0.0",
+    "immutable": "^4.0.0-rc.12",
     "pino": "^5.11.1",
-    "unirest": "^0.5.1"
+    "unirest": "^0.5.1",
+    "watson-developer-cloud": "^3.18.0"
   }
 }
