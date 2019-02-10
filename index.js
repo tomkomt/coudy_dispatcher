@@ -31,7 +31,7 @@ app.use(fileUpload());
 /** 
  * Use routes
 */
-require('./routes/v1/speech')(app);
+require('./routes/v1/mobile')(app);
 
 /**
  * Server listener
