@@ -3,7 +3,14 @@
         "speech2text": {
             "url": "https://stream-fra.watsonplatform.net/speech-to-text/api",
             "apikey": "I_AgVHSWmtRoTkOhrjlFsHrAdpsGxw4PVhEnB4Q-tOIA",
-            "content-type": "audio/mp3"
+            "source_devices": {
+                "mobile": {
+                    "content-type": "application/octet-stream"
+                },
+                "microphone": {
+                    "content-type": "audio/mp3"
+                }
+            }
         }
     }
 }
