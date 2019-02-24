@@ -11,9 +11,51 @@
                     "content-type": "audio/mp3"
                 }
             },
-            "keywords": [
-                "play", "please", "put on", "something", "wake up tv", "kitchen on", "kitchen off", "couch on", "couch off", "silence", "shut up", "away some", "play some", "light on", "light off", "lights on", "lights off", "turn off", "turn on", "kodi", "kody", "codi", "cody"
-            ],
+            "commands_keywords": {
+                "coudy_call": [
+                    "coudy",
+                    "cody"
+                ],
+                "all_lights_off": [
+                    "light off",
+                    "lights off",
+                    "all off"
+                ],
+                "all_lights_on": [
+                    "light on",
+                    "lights on",
+                    "all on"
+                ],
+                "couch_light_off": [
+                    "couch off"
+                ],
+                "couch_light_on": [
+                    "couch on"
+                ],
+                "kitchen_light_off": [
+                    "kitchen off"
+                ],
+                "kitchen_light_on": [
+                    "kitchen on"
+                ],
+                "stop_all": [
+                    "silence",
+                    "shut up"
+                ],
+                "play_some_show": [
+                    "put on something",
+                    "put on some",
+                    "put on",
+                    "play something",
+                    "play some",
+                    "away something",
+                    "away some"
+                ],
+                "wake_up_kodi": [
+                    "wake up tv",
+                    "wake up kodi"
+                ]
+            },
             "keywords_threshold": 0.01,
             "alternatives": {
                 "max_alternatives": 5,

@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     const recognizeParams = {
         audio: req.files.audioData.data,
         content_type: configParams.getIn(['services', 'speech2text', 'source_devices', 'mobile', 'content-type']),
-        keywords: configParams.getIn(['services', 'speech2text', 'keywords']).toJS(),
+        keywords: configParams.getIn(['services', 'speech2text', 'commands_keywords']).toList().flatten(true).toJS(),
         keywords_threshold: configParams.getIn(['services', 'speech2text', 'keywords_threshold']),
         max_alternatives: configParams.getIn(['services', 'speech2text', 'alternatives', 'max_alternatives']),
         word_alternatives_threshold: configParams.getIn(['services', 'speech2text', 'alternatives', 'word_alternatives_threshold']),
