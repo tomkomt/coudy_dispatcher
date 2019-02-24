@@ -10,6 +10,14 @@
                 "microphone": {
                     "content-type": "audio/mp3"
                 }
+            },
+            "keywords": [
+                "play", "please", "put on", "something", "wake up tv", "kitchen on", "kitchen off", "couch on", "couch off", "silence", "shut up", "away some", "play some", "light on", "light off", "lights on", "lights off", "turn off", "turn on", "kodi", "kody", "codi", "cody"
+            ],
+            "keywords_threshold": 0.01,
+            "alternatives": {
+                "max_alternatives": 5,
+                "word_alternatives_threshold": 0.01
             }
         }
     }
