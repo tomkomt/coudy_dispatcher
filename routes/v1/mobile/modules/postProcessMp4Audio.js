@@ -30,21 +30,26 @@ module.exports = (req, res, next) => {
                 error: error.message
             });
         } else {
-            debugger;
             let transcripts = _
                 .chain(_.get(results, 'results'))
                 .reduce((acc, item) => {
-                    acc.push(_.get(item, 'alternatives').map(alternative => {
-                        return {
-                            transcript: _.get(alternative, 'transcript'),
-                            confidence: _.get(alternative, 'confidence')
-                        }
-                    }));
+                    acc.push(_.sortBy(_.get(item, 'keywords_result'), keyword => _.get(keyword, [0, 'confidence'])).map(keyword => _.get(keyword, 0)));
                     return acc;
                 }, [])
-                .flattenDeep()
-                .sortBy('confidence')
                 .reverse()
+                .reduce((acc, items) => {
+                    debugger;
+                    acc.push(items.map(item => {
+                        let command_key = configParams.getIn(['services', 'speech2text', 'commands_keywords'])
+                            .keySeq()
+                            .toList()
+                            .find(key => configParams.getIn(['services', 'speech2text', 'commands_keywords']).get(key).includes(_.lowerCase(_.get(item, 'normalized_text'))))
+                        _.set(item, 'command', command_key);
+                        return item;
+                    }))
+                    acc.push(items);
+                    return acc;
+                }, [])
                 .value()
                 
             logger.info(results);
