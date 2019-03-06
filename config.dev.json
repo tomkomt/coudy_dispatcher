@@ -53,9 +53,12 @@
                     "wake up tv",
                     "wake up kodi"
                 ],
-                "kodi__pause": [
+                "kodi__pause_toggle": [
                     "pause tv",
-                    "pause kodi"
+                    "pause TV",
+                    "pause kodi",
+                    "wait",
+                    "continue"
                 ]
             },
             "keywords_threshold": 0.01,
@@ -78,6 +81,12 @@
                     "params": {
                         "mute": false
                     }                    
+                },
+                "kodi__pause": {
+                    "method": "Player.PlayPause",
+                    "params": {
+                        "playerid": 1
+                    }
                 }
             }
         }
