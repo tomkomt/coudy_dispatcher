@@ -12,49 +12,64 @@
                 }
             },
             "commands_keywords": {
-                "coudy_call": [
+                "coudy__call": [
                     "coudy",
                     "cody"
                 ],
-                "all_lights_off": [
+                "lights__all_off": [
                     "light off",
                     "lights off",
                     "all off"
                 ],
-                "all_lights_on": [
+                "lights__all_on": [
                     "light on",
                     "lights on",
                     "all on"
                 ],
-                "couch_light_off": [
+                "lights__couch_off": [
                     "couch off"
                 ],
-                "couch_light_on": [
+                "lights__couch_on": [
                     "couch on"
                 ],
-                "kitchen_light_off": [
+                "lights__kitchen_off": [
                     "kitchen off"
                 ],
-                "kitchen_light_on": [
+                "lights__kitchen_on": [
                     "kitchen on"
                 ],
-                "stop_all": [
+                "kodi__mute_on": [
                     "silence",
                     "shut up"
                 ],
-                "play_some_show": [
+                "kodi__play_some_show": [
                     "put on something",
                     "play something"
                 ],
-                "wake_up_kodi": [
+                "kodi__wake_up": [
                     "wake up tv",
                     "wake up kodi"
+                ],
+                "kodi__pause": [
+                    "pause tv",
+                    "pause kodi"
                 ]
             },
             "keywords_threshold": 0.01,
             "alternatives": {
                 "max_alternatives": 5,
                 "word_alternatives_threshold": 0.01
+            }
+        },
+        "kodi_jsonrpc": {
+            "url": "http://192.168.1.29:8080/jsonrpc",
+            "methods": {
+                "kodi__mute_on": {
+                    "method": "Application.SetMute",
+                    "params": {
+                        "mute": true
+                    }
+                }
             }
         }
     }
