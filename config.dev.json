@@ -82,7 +82,7 @@
                         "mute": false
                     }                    
                 },
-                "kodi__pause": {
+                "kodi__pause_toggle": {
                     "method": "Player.PlayPause",
                     "params": {
                         "playerid": 1
