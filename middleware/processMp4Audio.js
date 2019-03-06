@@ -51,13 +51,13 @@ module.exports = (req, res, next) => {
                     
                 resolve({
                     error: false,
-                    transcripts: transcripts,
-                    error: 'All good'
+                    keywords: transcripts,
+                    message: 'All good'
                 });
             }
         })
     }).then(results => {
-        _.set(req, ['context', 'transcripts'], _.head(_.get(results, 'transcripts')));
+        _.set(req, ['context', 'keywords'], _.head(_.get(results, 'keywords')));
         next();
     }).catch(error => {
         res.status(402).send({

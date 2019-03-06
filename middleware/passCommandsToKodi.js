@@ -6,14 +6,13 @@ const unirest = require('unirest');
 const eachSeries = require('async/eachSeries')
 
 module.exports = (req, res, next) => {
-    debugger;
-    let transcripts = _.get(req, ['context', 'transcripts'])
+    let keywords = _.get(req, ['context', 'keywords'])
     let commands = []
 
-    if(transcripts.length > 0) {
+    if(keywords.length > 0) {
         commands = _
             .orderBy(
-                _.get(req, ['context', 'transcripts']), 'confidence', 'desc'
+                keywords, 'confidence', 'desc'
             )
             .filter(
                 transcript => _.get(transcript, 'command').indexOf('kodi__') > -1
