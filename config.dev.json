@@ -42,6 +42,9 @@
                     "silence",
                     "shut up"
                 ],
+                "kodi__mute_off": [
+                    "speak up"
+                ],
                 "kodi__play_some_show": [
                     "put on something",
                     "play something"
@@ -69,6 +72,12 @@
                     "params": {
                         "mute": true
                     }
+                },
+                "kodi__mute_off": {
+                    "method": "Application.SetMute",
+                    "params": {
+                        "mute": false
+                    }                    
                 }
             }
         }
