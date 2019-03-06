@@ -8,5 +8,8 @@
 
 module.exports = (app) => {
     app.route('/api/v1/mobile')
-    .post(require('./modules/postProcessMp4Audio.js'));
+    .post(
+        require('../../../middleware/processMp4Audio.js'),
+        require('../../../middleware/passCommandsToKodi.js')
+    );
 }
