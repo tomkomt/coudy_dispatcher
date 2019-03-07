@@ -50,7 +50,9 @@
                     "play something"
                 ],
                 "kodi__wake_up": [
+                    "wake up",
                     "wake up tv",
+                    "wake up TV",
                     "wake up kodi"
                 ],
                 "kodi__pause_toggle": [
@@ -59,6 +61,19 @@
                     "pause kodi",
                     "wait",
                     "continue"
+                ],
+                "kodi__volume_100": [
+                    "volume full",
+                    "volume up",
+                    "volume on"
+                ],
+                "kodi__volume_80": [
+                    "volume on eighty",
+                    "volume eighty"
+                ],
+                "kodi__volume_50": [
+                    "volume on fifty",
+                    "volume fifty"
                 ]
             },
             "keywords_threshold": 0.01,
@@ -70,6 +85,10 @@
         "kodi_jsonrpc": {
             "url": "http://192.168.1.29:8080/jsonrpc",
             "methods": {
+                "kodi__wake_up": {
+                    "method": "Input.Select",
+                    "params": {}
+                },
                 "kodi__mute_on": {
                     "method": "Application.SetMute",
                     "params": {
@@ -86,6 +105,24 @@
                     "method": "Player.PlayPause",
                     "params": {
                         "playerid": 1
+                    }
+                },
+                "kodi__volume_100": {
+                    "method": "Application.SetVolume",
+                    "params": {
+                        "volume": 100
+                    }
+                },
+                "kodi__volume_80": {
+                    "method": "Application.SetVolume",
+                    "params": {
+                        "volume": 80
+                    }
+                },
+                "kodi__volume_50": {
+                    "method": "Application.SetVolume",
+                    "params": {
+                        "volume": 50
                     }
                 }
             }
