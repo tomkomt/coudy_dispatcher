@@ -81,7 +81,9 @@
                 ],
                 "kodi__play_comedy_movie": [
                     "put on comedy",
-                    "put on comedy movie"
+                    "put on comedy movie",
+                    "put comedy on",
+                    "put comedy movie on"
                 ]
             },
             "keywords_threshold": 0.01,
