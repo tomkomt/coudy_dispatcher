@@ -8,7 +8,7 @@ const series = require('async/series')
 module.exports = () => {
     return new Promise((resolve, reject) => {
         var selected_movie = {}
-        debugger;
+
         series([
             (callback) => {
                 unirest.post(configParams.getIn(['services', 'kodi_jsonrpc', 'url']))
@@ -55,8 +55,6 @@ module.exports = () => {
                 })
             },
             (callback) => {
-                console.log(selected_movie);
-                debugger;
                 unirest.post(configParams.getIn(['services', 'kodi_jsonrpc', 'url']))
                 .headers({
                     'Content-Type': 'application/json'
@@ -66,7 +64,7 @@ module.exports = () => {
                     "method": "Player.Open",
                     "params": {
                         "item": {
-                            "file": `/home/pi/storage/movies/${_.get(selected_movie, 'label')} (${_.get(selected_movie, 'year')}/${_.get(selected_movie, 'label')} (${_.get(selected_movie, 'year')}.strm)`
+                            "file": `/home/pi/storage/movies/${_.get(selected_movie, 'label')} (${_.get(selected_movie, 'year')})/${_.get(selected_movie, 'label')} (${_.get(selected_movie, 'year')}).strm`
                         }
                     },
                     "id": 1
