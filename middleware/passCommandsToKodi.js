@@ -6,8 +6,8 @@ const unirest = require('unirest');
 const eachSeries = require('async/eachSeries')
 
 module.exports = (req, res, next) => {
-    let keywords = _.get(req, ['context', 'keywords'])
-    let commands = []
+    let keywords = _.get(req, ['context', 'keywords']) || []
+    let commands = _.get(req, ['body', 'simulated_commands']) || []
 
     if(keywords.length > 0) {
         commands = _

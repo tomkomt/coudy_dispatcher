@@ -32,6 +32,7 @@ app.use(fileUpload());
  * Use routes
 */
 require('./routes/v1/mobile')(app);
+require('./routes/v1/simulator')(app);
 
 /**
  * Server listener
