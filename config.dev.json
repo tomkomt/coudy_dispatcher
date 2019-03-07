@@ -60,7 +60,11 @@
                     "pause TV",
                     "pause kodi",
                     "wait",
-                    "continue"
+                    "continue",
+                    "polls",
+                    "bulls",
+                    "for us",
+                    "all right"
                 ],
                 "kodi__volume_100": [
                     "volume full",
@@ -74,6 +78,10 @@
                 "kodi__volume_50": [
                     "volume on fifty",
                     "volume fifty"
+                ],
+                "kodi__play_comedy_movie": [
+                    "put on comedy",
+                    "put on comedy movie"
                 ]
             },
             "keywords_threshold": 0.01,
@@ -86,44 +94,55 @@
             "url": "http://192.168.1.29:8080/jsonrpc",
             "methods": {
                 "kodi__wake_up": {
+                    "type": "method",
                     "method": "Input.Select",
                     "params": {}
                 },
                 "kodi__mute_on": {
+                    "type": "method",
                     "method": "Application.SetMute",
                     "params": {
                         "mute": true
                     }
                 },
                 "kodi__mute_off": {
+                    "type": "method",
                     "method": "Application.SetMute",
                     "params": {
                         "mute": false
                     }                    
                 },
                 "kodi__pause_toggle": {
+                    "type": "method",
                     "method": "Player.PlayPause",
                     "params": {
                         "playerid": 1
                     }
                 },
                 "kodi__volume_100": {
+                    "type": "method",
                     "method": "Application.SetVolume",
                     "params": {
                         "volume": 100
                     }
                 },
                 "kodi__volume_80": {
+                    "type": "method",
                     "method": "Application.SetVolume",
                     "params": {
                         "volume": 80
                     }
                 },
                 "kodi__volume_50": {
+                    "type": "method",
                     "method": "Application.SetVolume",
                     "params": {
                         "volume": 50
                     }
+                },
+                "kodi__play_comedy_movie": {
+                    "type": "middleware",
+                    "method": "playRandomComedy"
                 }
             }
         }
