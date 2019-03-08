@@ -54,6 +54,15 @@
                 ],
                 "kodi__play_comedy_movie": [
                     "play any comedy movie"
+                ],
+                "kodi__audio_english_subs_english": [
+                    "change language to english"
+                ],
+                "kodi__audio_slovak": [
+                    "change language to slovak"
+                ],
+                "kodi__audio_czech": [
+                    "change language to czech"
                 ]
             },
             "keywords_threshold": 0.75,
@@ -119,6 +128,18 @@
                 "kodi__play_any_morning_show": {
                     "type": "middleware",
                     "method": "playRandomMorningTVShow"
+                },
+                "kodi__audio_english_subs_english": {
+                    "type": "middleware",
+                    "method": "changeAudioSubsToEnglish"
+                },
+                "kodi__audio_slovak": {
+                    "type": "middleware",
+                    "method": "changeAudioToSlovak"
+                },
+                "kodi__audio_czech": {
+                    "type": "middleware",
+                    "method": "changeAudioToCzech"
                 }
             }
         }
