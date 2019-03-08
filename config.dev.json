@@ -12,65 +12,37 @@
                 }
             },
             "commands_keywords": {
-                "coudy__call": [
-                    "coudy",
-                    "cody"
-                ],
-                "lights__all_off": [
-                    "light off",
-                    "lights off",
-                    "all off"
-                ],
-                "lights__all_on": [
-                    "light on",
-                    "lights on",
-                    "all on"
-                ],
-                "lights__couch_off": [
-                    "couch off"
-                ],
-                "lights__couch_on": [
-                    "couch on"
-                ],
-                "lights__kitchen_off": [
-                    "kitchen off"
-                ],
-                "lights__kitchen_on": [
-                    "kitchen on"
-                ],
                 "kodi__mute_on": [
                     "silence",
-                    "shut up"
+                    "shut up",
+                    "mute",
+                    "sound off"
                 ],
                 "kodi__mute_off": [
-                    "speak up"
+                    "speak up",
+                    "mute off",
+                    "sound on"
                 ],
-                "kodi__play_some_show": [
-                    "put on something",
-                    "put something on",
-                    "play something"
+                "kodi__play_any_morning_show": [
+                    "play any tv show"
                 ],
                 "kodi__wake_up": [
                     "wake up",
                     "wake up tv",
-                    "wake up TV",
                     "wake up kodi"
                 ],
                 "kodi__pause_toggle": [
                     "pause tv",
-                    "pause TV",
                     "pause kodi",
                     "wait",
                     "continue",
-                    "polls",
-                    "bulls",
-                    "for us",
-                    "all right"
+                    "pause toggle",
+                    "pause on",
+                    "pause off"
                 ],
                 "kodi__volume_100": [
                     "volume full",
-                    "volume up",
-                    "volume on"
+                    "volume up"
                 ],
                 "kodi__volume_80": [
                     "volume on eighty",
@@ -81,16 +53,13 @@
                     "volume fifty"
                 ],
                 "kodi__play_comedy_movie": [
-                    "put on comedy",
-                    "put on comedy movie",
-                    "put comedy on",
-                    "put comedy movie on"
+                    "play any comedy movie"
                 ]
             },
-            "keywords_threshold": 0.01,
+            "keywords_threshold": 0.75,
             "alternatives": {
-                "max_alternatives": 5,
-                "word_alternatives_threshold": 0.01
+                "max_alternatives": 11,
+                "word_alternatives_threshold": 0.75
             }
         },
         "kodi_jsonrpc": {
@@ -147,7 +116,7 @@
                     "type": "middleware",
                     "method": "playRandomComedy"
                 },
-                "kodi__play_some_show": {
+                "kodi__play_any_morning_show": {
                     "type": "middleware",
                     "method": "playRandomMorningTVShow"
                 }
