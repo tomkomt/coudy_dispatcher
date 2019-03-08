@@ -47,6 +47,7 @@
                 ],
                 "kodi__play_some_show": [
                     "put on something",
+                    "put something on",
                     "play something"
                 ],
                 "kodi__wake_up": [
@@ -145,6 +146,10 @@
                 "kodi__play_comedy_movie": {
                     "type": "middleware",
                     "method": "playRandomComedy"
+                },
+                "kodi__play_some_show": {
+                    "type": "middleware",
+                    "method": "playRandomMorningTVShow"
                 }
             }
         }
