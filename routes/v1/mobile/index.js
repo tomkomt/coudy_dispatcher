@@ -9,7 +9,7 @@
 module.exports = (app) => {
     app.route('/api/v1/mobile')
     .post(
-        require('../../../middleware/processMp4Audio.js'),
+        require('../../../middleware/findClosestCommand.js'),
         require('../../../middleware/passCommandsToKodi.js')
     );
 }
