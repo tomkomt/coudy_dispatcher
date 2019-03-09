@@ -16,8 +16,6 @@ module.exports = (req, res, next) => {
     const recognizeParams = {
         audio: req.files.audioData.data,
         content_type: configParams.getIn(['services', 'speech2text', 'source_devices', 'mobile', 'content-type']),
-        keywords: all_keywords,
-        keywords_threshold: configParams.getIn(['services', 'speech2text', 'keywords_threshold']),
         max_alternatives: configParams.getIn(['services', 'speech2text', 'alternatives', 'max_alternatives']),
         word_alternatives_threshold: configParams.getIn(['services', 'speech2text', 'alternatives', 'word_alternatives_threshold']),
         timestamps: true,
@@ -42,7 +40,7 @@ module.exports = (req, res, next) => {
                     let command_key = configParams.getIn(['services', 'speech2text', 'commands_keywords'])
                     .keySeq()
                     .toList()
-                    .find(key => configParams.getIn(['services', 'speech2text', 'commands_keywords']).get(key).includes(_.lowerCase(_.get(match, 'match_string'))))
+                    .find(key => configParams.getIn(['services', 'speech2text', 'commands_keywords']).get(key).includes(_.get(match, 'match_string').toLowerCase()))
                     _.set(match, 'command', command_key);     
                     return match;               
                 });
@@ -72,12 +70,14 @@ module.exports = (req, res, next) => {
                         command: _.get(command_match, 'command'),
                         confidence: 1
                     },
+                    alternatives: _.get(results, ['results', 0, 'alternatives']),
                     message: 'All good'
                 });
             }
         })
     }).then(results => {
         _.set(req, ['context', 'keywords'], [_.get(results, 'keywords')]);
+        _.set(req, ['context', 'transcript_alternatives'], _.get(results, 'alternatives'));
         next();
     }).catch(error => {
         res.status(402).send({
