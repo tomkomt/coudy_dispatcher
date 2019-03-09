@@ -65,12 +65,13 @@
                     "change language to czech"
                 ],
                 "kodi__play_specific_movie": [
-                    "play a movie titled %s"
+                    "play a movie titled s2r1",
+                    "play a movie called s2r1"
                 ]
             },
             "keywords_threshold": 0.75,
             "alternatives": {
-                "max_alternatives": 11,
+                "max_alternatives": 21,
                 "word_alternatives_threshold": 0.75
             }
         },
@@ -145,7 +146,7 @@
                     "method": "changeAudioToCzech"
                 },
                 "kodi__play_specific_movie": {
-                    "type": "middleware",
+                    "type": "middleware_specific",
                     "method": "playSpecificMovie"
                 }
             }
