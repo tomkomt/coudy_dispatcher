@@ -63,6 +63,9 @@
                 ],
                 "kodi__audio_czech": [
                     "change language to czech"
+                ],
+                "kodi__play_specific_movie": [
+                    "play a movie titled %s"
                 ]
             },
             "keywords_threshold": 0.75,
@@ -140,6 +143,10 @@
                 "kodi__audio_czech": {
                     "type": "middleware",
                     "method": "changeAudioToCzech"
+                },
+                "kodi__play_specific_movie": {
+                    "type": "middleware",
+                    "method": "playSpecificMovie"
                 }
             }
         }

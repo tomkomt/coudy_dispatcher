@@ -30,6 +30,7 @@ module.exports = (req, res, next) => {
                 logger.error(error);
                 reject(error);
             } else {
+                logger.info("Alternatives: ", _.get(results, ['results', 0, 'alternatives']));
                 const matches = _.get(results, ['results', 0, 'alternatives']).map(alternative => {
                     return stringSimilarity.findBestMatch(_.get(alternative, 'transcript'), all_keywords)
                 }).map(match => {
