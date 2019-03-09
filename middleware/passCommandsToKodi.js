@@ -7,6 +7,7 @@ const eachSeries = require('async/eachSeries')
 
 module.exports = (req, res, next) => {
     let keywords = _.get(req, ['context', 'keywords']) || []
+    let transcript_alternatives = _.get(req, ['context', 'transcript_alternatives']) || []
     let commands = _.get(req, ['body', 'simulated_commands']) || []
 
     if(keywords.length > 0) {
@@ -21,7 +22,7 @@ module.exports = (req, res, next) => {
                 transcript => _.get(transcript, 'command')
             )
     }
-    logger.info('Commands: ', commands)
+    logger.info('Commands: ', commands);
 
     eachSeries(commands, (command_item, callback) => {
         let command_config = configParams.getIn(['services', 'kodi_jsonrpc', 'methods', command_item])
@@ -56,6 +57,14 @@ module.exports = (req, res, next) => {
                 })
             break;
 
+            case 'middleware_specific':
+                require(`../routine/${command_config.get('method')}.js`)(transcript_alternatives).then(results => {
+                    callback(null, results);
+                }).catch(error => {
+                    callback(error.message);
+                })
+            break;
+            
             default:
                 callback(null, [])
             break;
