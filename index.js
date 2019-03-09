@@ -40,4 +40,7 @@ require('./routes/v1/simulator')(app);
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     logger.info(`Server running at port ${port}`);
+
+    logger.info(`Starting to fetch movies to redux`);
+    require('./redux/store').dispatch(require('./redux/movies/actions').fetchMovies());
 });

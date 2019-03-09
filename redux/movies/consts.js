@@ -1,0 +1,5 @@
+module.exports = {
+    FETCCH_MOVIES: 'FETCH_MOVIES',
+    ADD_MOVIES: 'ADD_MOVIES',
+    ADD_MOVIE: 'ADD_MOVIE'
+};
