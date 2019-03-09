@@ -11,12 +11,12 @@ module.exports = (state = Immutable.List(), action) => {
 
             let newState = state;
             movies_list.forEach(movie => {
-                newState = newState.push({
-                    libraryId: _.get(movie, 'libraryId'),
-                    title: _.get(movie,'title'),
-                    path: _.get(movie, 'path'),
+                newState = newState.push(Immutable.Map({
+                    libraryId: _.get(movie, 'movieId'),
+                    title: _.get(movie,'label'),
+                    file: _.get(movie, 'file'),
                     _receivedAt: moment().format()
-                })                
+                }))
             })
             logger.info(`To store were pushed ${movies_list.length} movies.`)
 
