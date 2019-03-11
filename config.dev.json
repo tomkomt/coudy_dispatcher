@@ -67,6 +67,12 @@
                 "kodi__play_specific_movie": [
                     "play a movie titled s2r1",
                     "play a movie called s2r1"
+                ],
+                "kodi__play_again": [
+                    "play again",
+                    "do last command again",
+                    "repeat last command",
+                    "do that again"
                 ]
             },
             "keywords_threshold": 0.75,
@@ -126,11 +132,11 @@
                     }
                 },
                 "kodi__play_comedy_movie": {
-                    "type": "middleware",
+                    "type": "middleware_playing",
                     "method": "playRandomComedy"
                 },
                 "kodi__play_any_morning_show": {
-                    "type": "middleware",
+                    "type": "middleware_playing",
                     "method": "playRandomMorningTVShow"
                 },
                 "kodi__audio_english_subs_english": {
@@ -146,8 +152,12 @@
                     "method": "changeAudioToCzech"
                 },
                 "kodi__play_specific_movie": {
-                    "type": "middleware_specific",
+                    "type": "middleware_specific_playing",
                     "method": "playSpecificMovie"
+                },
+                "kodi__play_again": {
+                    "type": "middleware",
+                    "method": "repeatPreviousCommand"
                 }
             }
         }

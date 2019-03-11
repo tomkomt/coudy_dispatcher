@@ -5,7 +5,7 @@ const logger = require('pino')()
 const unirest = require('unirest');
 const series = require('async/series')
 
-module.exports = () => {
+module.exports = (command_item) => {
     return new Promise((resolve, reject) => {
         var selected_movie = {}
 
@@ -68,7 +68,7 @@ module.exports = () => {
                         let episodes_list = _.get(response_body, ['result', 'episodes']);
                         selected_episode = _
                             .chain(episodes_list)
-                            .sortBy('playcount', 'desc')
+                            .sortBy('playcount', 'asc')
                             .slice(0, 10)
                             .shuffle()
                             .head()
@@ -102,6 +102,11 @@ module.exports = () => {
                         callback(response.error)
                     }
                 })
+            },
+            (callback) => {
+                require('../redux/store').dispatch(require('../redux/player/actions').setLastPlayingCommand(command_item));
+                require('../redux/store').dispatch(require('../redux/player/actions').saveTranscriptAlternatives([]));
+                callback(null, 'OK');
             }
         ], (error, results) => {
             if(error) {

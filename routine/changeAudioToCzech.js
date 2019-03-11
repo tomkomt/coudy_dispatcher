@@ -5,7 +5,7 @@ const logger = require('pino')()
 const unirest = require('unirest');
 const series = require('async/series')
 
-module.exports = () => {
+module.exports = (command_item) => {
     return new Promise((resolve, reject) => {
         var active_player_id = {}
         var available_audiostreams = []
