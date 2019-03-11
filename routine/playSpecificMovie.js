@@ -9,7 +9,58 @@ const series = require('async/series')
 
 module.exports = (command_item, transcript_alternatives) => {
     return new Promise((resolve, reject) => {
+        var active_player_id = 0;
+
         series([
+            (callback) => {
+                unirest.post(configParams.getIn(['services', 'kodi_jsonrpc', 'url']))
+                .headers({
+                    'Content-Type': 'application/json'
+                })
+                .send({
+                    "jsonrpc": "2.0",
+                    "method": "Player.GetActivePlayers",
+                    "id": 1
+                })
+                .end((response) => {
+                    if(_.get(response, 'status') == 200) {
+                        let response_body = _.get(response, 'body');
+                        let players_list = _.get(response_body, ['result']);
+                        if(players_list.length > 0) {
+                            active_player_id = _.get(players_list, [0, 'playerid']);
+                        }
+                        callback(null, selected_movie);
+                    } else {
+                        callback(response.error)
+                    }
+                })
+            },
+            (callback) => {
+                if(active_player_id > 0) {
+                    unirest.post(configParams.getIn(['services', 'kodi_jsonrpc', 'url']))
+                    .headers({
+                        'Content-Type': 'application/json'
+                    })
+                    .send({
+                        "jsonrpc": "2.0",
+                        "method": "Player.Stop",
+                        "params": {
+                            "playerid": active_player_id
+                        },
+                        "id": 1
+                    })
+                    .end((response) => {
+                        if(_.get(response, 'status') == 200) {
+                            let response_body = _.get(response, 'body');
+                            callback(null, response_body);
+                        } else {
+                            callback(response.error)
+                        }
+                    })
+                } else {
+                    callback(null, active_player_id);
+                }
+            },
             callback => {
                 const store_movies = require('../redux/store').getState().movies;
                 const separators = ['titled', 'called'];
