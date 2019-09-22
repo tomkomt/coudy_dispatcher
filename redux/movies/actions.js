@@ -32,7 +32,7 @@ function fetchMovies() {
                 .end((response) => {
                     if(_.get(response, 'status') == 200) {
                         let response_body = _.get(response, 'body');
-                        let movies_list = _.get(response_body, ['result', 'movies']);
+                        let movies_list = _.get(response_body, ['result', 'movies']) || [];
                         allowRequests();
                         dispatch(addMovies(movies_list));
                     } else {
